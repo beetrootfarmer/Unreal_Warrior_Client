@@ -1,11 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
+#include <string>
 #include "GetMac.h"
 
-
-// UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = MacAddress, meta = (AllowPrivateAccess = "true"))
-//	string macAddress;
+using namespace std;
 
 // Sets default values
 AGetMac::AGetMac()
@@ -19,6 +17,10 @@ void AGetMac::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// string str;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = MacAddress, meta = (AllowPrivateAccess = "true"))
+		int test = 2;
+
 	FString uuid = FPlatformMisc::GetHashedMacAddressString();
 	UE_LOG(LogTemp, Warning, TEXT("uuid is %s"), *uuid);
 
@@ -29,8 +31,10 @@ void AGetMac::BeginPlay()
 	for (auto value : macAddress)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("macAddress is %d"), value);
-		//macAddress += value;
+		//mac += value;
 	}
+
+	//UE_LOG(LogTemp, Warning, TEXT("macAddress mac is %s"), mac);
 }
 
 // Called every frame
